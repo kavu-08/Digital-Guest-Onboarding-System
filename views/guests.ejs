@@ -1,0 +1,35 @@
+<!-- views/guests.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest List</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Guest List</h1>
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <th>Mobile Number</th>
+            <th>Address</th>
+            <th>Purpose of Visit</th>
+            <th>Stay Dates</th>
+            <th>Email ID</th>
+            <th>ID Proof Number</th>
+        </tr>
+        <% guests.forEach(guest => { %>
+        <tr>
+            <td><%= guest.fullName %></td>
+            <td><%= guest.mobileNumber %></td>
+            <td><%= guest.address %></td>
+            <td><%= guest.purposeOfVisit %></td>
+            <td><%= guest.stayDates.from.toDateString() %> to <%= guest.stayDates.to.toDateString() %></td>
+            <td><%= guest.emailId %></td>
+            <td><%= guest.idProofNumber %></td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

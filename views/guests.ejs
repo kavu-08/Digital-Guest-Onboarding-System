@@ -1,0 +1,29 @@
+<!-- views/guest-form.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Registration</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Register as Guest for <%= hotel.name %></h1>
+    <form action="/submit-guest" method="POST">
+        <input type="hidden" name="hotelId" value="<%= hotel._id %>">
+        <input type="text" name="fullName" placeholder="Full Name" required>
+        <input type="text" name="mobileNumber" placeholder="Mobile Number" required>
+        <input type="text" name="address" placeholder="Address" required>
+        <select name="purposeOfVisit" required>
+            <option value="Business">Business</option>
+            <option value="Personal">Personal</option>
+            <option value="Tourist">Tourist</option>
+        </select>
+        <input type="date" name="stayDates[from]" required>
+        <input type="date" name="stayDates[to]" required>
+        <input type="email" name="emailId" placeholder="Email ID" required>
+        <input type="text" name="idProofNumber" placeholder="ID Proof Number" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

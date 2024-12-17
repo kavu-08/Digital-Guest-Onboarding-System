@@ -1,0 +1,35 @@
+<!-- views/hotels.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Hotels</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Registered Hotels</h1>
+    <form action="/add-hotel" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Hotel Name" required>
+        <input type="file" name="logo" required>
+        <input type="text" name="address" placeholder="Hotel Address" required>
+        <button type="submit">Add Hotel</button>
+    </form>
+    <table>
+        <tr>
+            <th>Hotel Name</th>
+            <th>Address</th>
+            <th>Logo</th>
+            <th>QR Code</th>
+        </tr>
+        <% hotels.forEach(hotel => { %>
+        <tr>
+            <td><%= hotel.name %></td>
+            <td>< %= hotel.address %></td>
+            <td><img src="/uploads/<%= hotel.logo %>" alt="Logo" width="50"></td>
+            <td><img src="<%= hotel.qrCode %>" alt="QR Code" width="50"></td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
